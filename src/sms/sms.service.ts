@@ -7,7 +7,7 @@ export class SmsService {
   async senOtp(phone_number: string) {
     let data = new FormData();
     data.append("mobile_phone", phone_number);
-    data.append("message", "Eskiz Test");
+    data.append("message", "Bu Eskiz dan test");
     data.append("from", "4546");
 
     let config = {
@@ -15,7 +15,7 @@ export class SmsService {
       maxBodyLength: Infinity,
       url: "https://notify.eskiz.uz/api/message/sms/send",
       headers: {
-        authorization: "Bearer " + process.env.TOKEN,
+        Authorization: `Bearer ${process.env.TOKEN}`,
       },
       data: data,
     };
