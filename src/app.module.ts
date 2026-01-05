@@ -3,6 +3,7 @@ import { AppController } from "./app.controller";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { ConfigModule } from "@nestjs/config";
 import { AuthModule } from './auth/auth.module';
+import { RedisModule } from "./redis/redis.module";
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { AuthModule } from './auth/auth.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
-
+    RedisModule,
     AuthModule,
   ],
   controllers: [AppController],
